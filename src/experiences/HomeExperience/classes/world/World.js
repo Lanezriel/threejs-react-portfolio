@@ -1,6 +1,7 @@
 import Experience from "../Experience";
-import Cube from "./Cube";
 import CursorLight from "./CursorLight";
+import Cubes from "./Cubes";
+import Spheres from "./Spheres";
 
 export default class World {
   constructor() {
@@ -16,7 +17,8 @@ export default class World {
 
     // Setup
     this.cursorLight = new CursorLight();
-    this.cube = new Cube();
+    this.cubes = new Cubes();
+    this.spheres = new Spheres();
   }
 
   update() {

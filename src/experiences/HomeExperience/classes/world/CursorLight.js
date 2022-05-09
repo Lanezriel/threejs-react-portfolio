@@ -31,7 +31,7 @@ export default class CursorLight {
   }
 
   setLight() {
-    this.light = new THREE.PointLight(0xffffff, 1, 1, 1);
+    this.light = new THREE.PointLight(0x3000ff, 1, 2, 2);
 
     if (this.debug.active) {
       this.debugFolder.addColor(this.light, 'color');
