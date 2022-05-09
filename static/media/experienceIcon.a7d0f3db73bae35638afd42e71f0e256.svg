@@ -1,0 +1,11 @@
+<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="experienceIcon">
+<path id="Vector 6" class="fill" d="M6 41.5V31.5H20.7101V33C20.7101 34 21.7246 34 21.7246 34H24.7681C24.7681 34 25.7826 34 25.7826 33V31.5H41V41.5C41 43 40.0217 44 38.5 44H8.5C6.97826 44 6 43 6 41.5Z" fill="white"/>
+<path id="Vector 7" class="fill" d="M6 26.5V30.5H20.7101V29C20.7101 28 21.7246 28 21.7246 28H24.7681C24.7681 28 25.7826 28 25.7826 29V30.5H41V26.5C41 25 40.0217 24 38.5 24H8.5C6.97826 24 6 25 6 26.5Z" fill="white"/>
+<path id="Rectangle 1" class="fill" d="M21.5 29C21.5 29 21.5 28.5 22 28.5C22.5 28.5 24 28.5 24.5 28.5C25 28.5 25 29 25 29V33C25 33 25 33.5 24.5 33.5C24 33.5 22.5 33.5 22 33.5C21.5 33.5 21.5 33 21.5 33V29Z" fill="white"/>
+<path id="Vector 8" class="fill" d="M20.5 21.5V24H19V20.5C19 20.5 19 19 20.5 19H26C27.5 19 27.5 20.5 27.5 20.5V24H26V21.5C26 21.5 26 20.5 25 20.5H21.5C20.5 20.5 20.5 21.5 20.5 21.5Z" fill="white"/>
+<circle id="Ellipse 3" class="stroke" cx="36" cy="15" r="10" stroke="white" stroke-width="2"/>
+<line id="Line 1" class="stroke" x1="36" y1="15" x2="36" y2="7" stroke="white" stroke-width="2"/>
+<line id="Line 2" class="stroke" x1="35.6644" y1="14.2526" x2="40.1644" y2="18.2526" stroke="white" stroke-width="2"/>
+</g>
+</svg>
