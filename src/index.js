@@ -4,8 +4,12 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './index.css';
-import Home from './views/Home';
 import Navbar from './components/Navbar';
+import Home from './views/Home';
+import Presentation from './views/Presentation';
+import Experience from './views/Experience';
+import Achievements from './views/Achievements';
+import Contact from './views/Contact';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,6 +18,10 @@ root.render(
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/presentation" element={<Presentation />} />
+        <Route path="/experience" element={<Experience />} />
+        <Route path="/achievements" element={<Achievements />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
