@@ -16,14 +16,12 @@ const HomeExperience = () => {
   const experience = useRef();
 
   useEffect(() => {
-    setTimeout(() => {
-      experience.current = new Experience(canvasRef.current);
-      
-      return () => {
-        experience.current.destroy();
-        experience.current = null;
-      };
-    }, 3000);
+    experience.current = new Experience(canvasRef.current);
+
+    return () => {
+      experience.current.destroy();
+      experience.current = null;
+    };
   }, []);
 
   return (

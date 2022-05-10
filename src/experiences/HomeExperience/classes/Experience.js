@@ -89,5 +89,7 @@ export default class Experience {
     if (this.debug.active) {
       this.debug.ui.destroy()
     }
+
+    instance = null;
   }
 };
