@@ -20,6 +20,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.div`
+  text-align: center;
   font-size: 4rem;
   font-weight: 700;
   opacity: 0;
@@ -28,6 +29,7 @@ export const Title = styled.div`
 `;
 
 export const Subtitle = styled.div`
+  text-align: center;
   font-size: 1rem;
   opacity: 0;
   filter: blur(2rem);
