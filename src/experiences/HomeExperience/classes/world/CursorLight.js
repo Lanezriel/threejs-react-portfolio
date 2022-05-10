@@ -32,7 +32,7 @@ export default class CursorLight {
   setPlaneMaterial() {
     this.planeMaterial = new THREE.ShaderMaterial({
       uniforms: {
-        uColor: { value: new THREE.Color(0x3000ff) },
+        uColor: { value: new THREE.Color(0xc000ff) },
       },
       blending: THREE.AdditiveBlending,
       transparent: true,
