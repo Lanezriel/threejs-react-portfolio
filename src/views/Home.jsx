@@ -6,7 +6,7 @@ const Home = () => {
     <Wrapper>
       <HomeExperience/>
       <Title>Dimitri Delbrouck</Title>
-      <Subtitle>Frontend experiences developper</Subtitle>
+      <Subtitle>Frontend experiences developer</Subtitle>
     </Wrapper>
   );
 };
