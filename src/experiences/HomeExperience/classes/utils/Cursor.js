@@ -16,21 +16,31 @@ export default class Cursor extends EventEmitter {
     this.position = new THREE.Vector3();
 
     // Mouse Move Event
-    window.addEventListener('mousemove', (event) => {
-      this.vector.set(
-        (event.clientX / this.sizes.width) * 2 - 1,
-        - ((event.clientY / this.sizes.height) * 2 - 1),
-        1
-      );
+    window.addEventListener('mousemove', this.eventHandler);
+    window.addEventListener('touchmove', this.eventHandler);
+  }
 
-      this.vector.unproject(this.camera.instance);
-      this.vector.sub(this.camera.instance.position).normalize();
+  eventHandler = (event) => {
+    const clientX = event.type === 'touchmove' ? event.touches[0].clientX : event.clientX;
+    const clientY = event.type === 'touchmove' ? event.touches[0].clientY : event.clientY;
+    this.vector.set(
+      (clientX / this.sizes.width) * 2 - 1,
+      - ((clientY / this.sizes.height) * 2 - 1),
+      1
+    );
 
-      let distance = - this.camera.instance.position.z / this.vector.z;
+    this.vector.unproject(this.camera.instance);
+    this.vector.sub(this.camera.instance.position).normalize();
 
-      this.position.copy(this.camera.instance.position).add(this.vector.multiplyScalar(distance));
+    let distance = - this.camera.instance.position.z / this.vector.z;
 
-      this.trigger('mousemove');
-    });
+    this.position.copy(this.camera.instance.position).add(this.vector.multiplyScalar(distance));
+
+    this.trigger('mousemove');
+  };
+
+  destroy() {
+    window.removeEventListener('mousemove', this.eventHandler);
+    window.removeEventListener('touchmove', this.eventHandler);
   }
 }

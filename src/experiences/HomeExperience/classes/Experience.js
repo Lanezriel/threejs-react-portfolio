@@ -65,6 +65,7 @@ export default class Experience {
     this.sizes.off('resize');
     this.time.off('tick');
     this.cursor.off('mousemove');
+    this.cursor.destroy();
 
     // Traverse the whole scene
     this.scene.traverse((child) => {
