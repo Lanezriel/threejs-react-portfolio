@@ -10,7 +10,6 @@ export default class CursorLight {
     this.sizes = this.experience.sizes;
     this.cursor = this.experience.cursor;
     this.scene = this.experience.scene;
-    this.time = this.experience.time;
     this.debug = this.experience.debug;
 
     // Debug
@@ -43,7 +42,8 @@ export default class CursorLight {
 
   setLight() {
     this.light = new THREE.PointLight(0x3000ff, 3, 4, 2);
-    this.light.castShadow = true;
+    // this.light.castShadow = true;
+    // this.light.shadow.camera.near = 0.01;
 
     if (this.debug.active) {
       this.debugFolder.addColor(this.light, 'color');
