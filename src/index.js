@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route, HashRouter } from 'react-router-dom';
 
 import './index.css';
 import Navbar from './components/Navbar';
@@ -14,7 +14,7 @@ import Contact from './views/Contact';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -23,7 +23,7 @@ root.render(
         <Route path="/achievements" element={<Achievements />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );
 
