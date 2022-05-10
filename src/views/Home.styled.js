@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.div`
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: 700;
   opacity: 0;
   filter: blur(2rem);
@@ -28,7 +28,7 @@ export const Title = styled.div`
 `;
 
 export const Subtitle = styled.div`
-  font-size: 1.5rem;
+  font-size: 1rem;
   opacity: 0;
   filter: blur(2rem);
   animation: ${blurryAppear} 1s ease-in-out forwards;

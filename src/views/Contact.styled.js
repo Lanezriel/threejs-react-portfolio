@@ -12,6 +12,6 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.div`
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: 700;
 `;

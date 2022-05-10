@@ -36,16 +36,16 @@ const StyledLink = styled(NavLink)`
   gap: 0.5rem;
   width: fit-content;
   color: white;
-  padding: 0.5rem 1.5rem;
+  padding: 0.25rem 1rem;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   transition: transform 500ms ease-in-out;
   // Translate to left - icon size - gap size - padding size
-  transform: translateX(calc(-100% + 2.5rem + 0.5rem + 1.5rem));
+  transform: translateX(calc(-100% + 2rem + 0.5rem + 1rem));
 
   & .icon {
-    width: 2.5rem;
+    width: 2rem;
 
     & .fill {
       fill: white;
