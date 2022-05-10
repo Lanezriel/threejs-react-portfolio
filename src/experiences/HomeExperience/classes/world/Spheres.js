@@ -28,6 +28,8 @@ export default class Spheres {
   setMesh() {
     this.count = 10;
     this.mesh = new THREE.InstancedMesh(this.geometry, this.material, this.count);
+    this.mesh.castShadow = true;
+    this.mesh.receiveShadow = true;
     this.scene.add(this.mesh);
 
     for (let i = 0; i < this.count; i++) {
