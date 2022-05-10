@@ -1,5 +1,8 @@
 import * as THREE from "three";
+
 import Experience from "../Experience";
+import cursorLightVertexShader from "../shaders/cursorLight/vertex.js";
+import cursorLightFragmentShader from "../shaders/cursorLight/fragment.js";
 
 export default class CursorLight {
   constructor() {
@@ -16,18 +19,26 @@ export default class CursorLight {
     }
 
     // Setup
-    this.setSphereGeometry();
-    this.setSphereMaterial();
+    this.setPlaneGeometry();
+    this.setPlaneMaterial();
     this.setLight();
-    this.setSphere();
+    this.setPlane();
   }
 
-  setSphereGeometry() {
-    this.sphereGeometry = new THREE.SphereBufferGeometry(0.02, 10, 10);
+  setPlaneGeometry() {
+    this.planeGeometry = new THREE.PlaneBufferGeometry(1, 1, 1, 1);
   }
 
-  setSphereMaterial() {
-    this.sphereMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+  setPlaneMaterial() {
+    this.planeMaterial = new THREE.ShaderMaterial({
+      uniforms: {
+        uColor: { value: new THREE.Color(0x3000ff) },
+      },
+      blending: THREE.AdditiveBlending,
+      transparent: true,
+      vertexShader: cursorLightVertexShader,
+      fragmentShader: cursorLightFragmentShader,
+    });
   }
 
   setLight() {
@@ -42,14 +53,14 @@ export default class CursorLight {
     }
   }
 
-  setSphere() {
-    this.sphere = new THREE.Mesh(this.sphereGeometry, this.sphereMaterial);
-    this.sphere.add(this.light);
-    this.sphere.position.set(2, 2, 2);
-    this.scene.add(this.sphere);
+  setPlane() {
+    this.plane = new THREE.Mesh(this.planeGeometry, this.planeMaterial);
+    this.plane.add(this.light);
+    this.plane.scale.set(0.5, 0.5, 0.5);
+    this.scene.add(this.plane);
   }
 
   update() {
-    this.sphere.position.copy(this.cursor.position);
+    this.plane.position.copy(this.cursor.position);
   }
 }
