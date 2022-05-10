@@ -11,9 +11,6 @@ import Experience from './views/Experience';
 import Achievements from './views/Achievements';
 import Contact from './views/Contact';
 
-document.querySelector("meta[name=viewport]")
-  .setAttribute('content', 'width=device-width, initial-scale='+(1/window.devicePixelRatio));
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

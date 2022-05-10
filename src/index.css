@@ -22,3 +22,15 @@ html,
 body {
   overflow: hidden;
 }
+
+@media (-webkit-device-pixel-ratio: 1.25) {
+  :root {
+    zoom: 0.8;
+  }
+}
+
+@media (-webkit-device-pixel-ratio: 1.5) {
+  :root {
+    zoom: 2/3;
+  }
+}
