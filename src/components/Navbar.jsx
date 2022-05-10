@@ -6,6 +6,7 @@ import { ReactComponent as PresentationIcon } from "../assets/icons/presentation
 import { ReactComponent as ExperienceIcon } from "../assets/icons/experienceIcon.svg";
 import { ReactComponent as AchievementIcon } from "../assets/icons/achievementIcon.svg";
 import { ReactComponent as ContactIcon } from "../assets/icons/contactIcon.svg";
+import { respondTo } from "../utils/respondTo";
 
 const blurryAppear = keyframes`
   to {
@@ -28,6 +29,11 @@ const Wrapper = styled.div`
   transform: translateY(-50%);
   animation: ${blurryAppear} 1s ease-in-out forwards;
   animation-delay: 2s;
+
+  ${respondTo.sm`
+    top: 1rem;
+    transform: unset;
+  `}
 `;
 
 const StyledLink = styled(NavLink)`

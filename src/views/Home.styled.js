@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { respondTo } from '../utils/respondTo';
 
 const blurryAppear = keyframes`
   to {
@@ -26,6 +27,10 @@ export const Title = styled.div`
   opacity: 0;
   filter: blur(2rem);
   animation: ${blurryAppear} 2s ease-in-out forwards;
+
+  ${respondTo.sm`
+    font-size: 2.5rem;
+  `}
 `;
 
 export const Subtitle = styled.div`
