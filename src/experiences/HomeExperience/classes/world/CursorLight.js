@@ -57,7 +57,9 @@ export default class CursorLight {
     this.plane = new THREE.Mesh(this.planeGeometry, this.planeMaterial);
     this.plane.add(this.light);
     this.plane.scale.set(0.75, 0.75, 0.75);
-    this.scene.add(this.plane);
+    setTimeout(() => {
+      this.scene.add(this.plane);
+    }, 3000);
   }
 
   update() {
