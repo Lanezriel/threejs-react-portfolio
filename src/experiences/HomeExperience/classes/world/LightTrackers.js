@@ -56,7 +56,7 @@ export default class LightTrackers {
       this.lightTrackersMaterial,
       this.numTrackers,
     );
-    this.lightTrackersMesh.castShadow = true;
+    // this.lightTrackersMesh.castShadow = true;
     this.lightTrackersMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
     this.scene.add(this.lightTrackersMesh);
 
