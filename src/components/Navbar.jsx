@@ -16,7 +16,7 @@ const blurryAppear = keyframes`
 `;
 
 const Wrapper = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 10;
   top: 50%;
   left: 0;
