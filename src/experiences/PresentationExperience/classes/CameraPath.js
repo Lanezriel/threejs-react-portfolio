@@ -22,16 +22,20 @@ export default class CameraPath {
 
   setCurve() {
     this.curve = new THREE.CatmullRomCurve3([
-      new THREE.Vector3(-3, -1, 3),
-      new THREE.Vector3(-1.75, -1.5, 1),
-      new THREE.Vector3(-0.5, -0.75, 2.5),
-      new THREE.Vector3(-0, -2, 0.75),
-      new THREE.Vector3(0.5, -0.5, 0),
-      new THREE.Vector3(0.75, 0.25, 0.25),
-      new THREE.Vector3(1.25, -0.5, 0.5),
-      new THREE.Vector3(2.5, 1, -1),
-      new THREE.Vector3(3, 0.5, -1),
-      new THREE.Vector3(5, 1, -3),
+      new THREE.Vector3(-3, 1, 4),
+      new THREE.Vector3(-2.5, 0.1, 3),
+      new THREE.Vector3(0, 0.25, 3.5),
+      new THREE.Vector3(1, 0.1, 3),
+      new THREE.Vector3(2.5, 0.25, 3),
+      new THREE.Vector3(3, 0.1, 1.5),
+      new THREE.Vector3(4, 0.5, 0.5),
+      new THREE.Vector3(3, 0.1, -1),
+      new THREE.Vector3(3.5, 0.25, -3),
+      new THREE.Vector3(1, 0.1, -3),
+      new THREE.Vector3(0, 0.5, -3.5),
+      new THREE.Vector3(-1, 0.1, -2),
+      new THREE.Vector3(-2, 0.25, -1),
+      new THREE.Vector3(0, 0.1, 0),
     ], false);
   }
 

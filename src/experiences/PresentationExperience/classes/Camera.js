@@ -16,6 +16,7 @@ export default class Camera {
 
   setInstance() {
     this.instance = new THREE.PerspectiveCamera(35, this.sizes.width / this.sizes.height, 0.1, 100);
+    // this.instance.position.set(0, 0, 10);
     this.instance.position.copy(this.cameraPath.geometry.parameters.path.getPointAt(0));
     this.instance.lookAt(this.cameraPath.geometry.parameters.path.getPointAt(0.01));
     this.scene.add(this.instance);
@@ -30,8 +31,8 @@ export default class Camera {
     const progress = this.scroll.scrollY / (document.body.scrollHeight - this.sizes.height);
 
     this.instance.position.copy(this.cameraPath.geometry.parameters.path.getPointAt(progress));
-    if (progress <= 0.9) {
-      this.instance.lookAt(this.cameraPath.geometry.parameters.path.getPointAt(progress + 0.01));
+    if (progress <= 0.95) {
+      this.instance.lookAt(this.cameraPath.geometry.parameters.path.getPointAt(progress + 0.005));
     }
   }
 }

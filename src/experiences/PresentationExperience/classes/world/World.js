@@ -1,4 +1,6 @@
 import Experience from "../Experience";
+import Floor from "./Floor";
+import Cubes from "./Cubes";
 
 export default class World {
   constructor() {
@@ -13,7 +15,8 @@ export default class World {
     // });
 
     // Setup
-    
+    this.floor = new Floor();
+    this.cubes = new Cubes();
   }
 
   update() {
