@@ -7,7 +7,7 @@ import Resources from "./utils/Resources";
 
 import Camera from "./Camera";
 import CameraPath from "./CameraPath";
-import ScrollCamera from "./ScrollCamera";
+// import ScrollCamera from "./ScrollCamera";
 import Renderer from "./Renderer";
 
 import sources from "./sources";
@@ -37,9 +37,9 @@ export default class Experience {
     this.time = new Time();
     this.scene = new THREE.Scene();
     this.resources = new Resources(sources);
-    this.camera = new Camera();
     this.cameraPath = new CameraPath();
-    this.scrollCamera = new ScrollCamera();
+    // this.scrollCamera = new ScrollCamera();
+    this.camera = new Camera();
     this.renderer = new Renderer();
     this.world = new World();
 
@@ -65,11 +65,11 @@ export default class Experience {
   }
 
   scrollEvent() {
-    this.scrollCamera.update();
+    // this.scrollCamera.update();
+    this.camera.update();
   }
 
   update() {
-    this.camera.update();
     this.world.update();
     this.renderer.update();
   }

@@ -1,7 +1,16 @@
+import { useEffect } from "react";
 import PresentationExperience from "../experiences/PresentationExperience/PresnetationExperience";
 import { Section, Title, Wrapper } from "./Presentation.styled";
 
 const Presentation = () => {
+  useEffect(() => {
+    document.body.style.setProperty('overflow', 'auto');
+
+    return () => {
+      document.body.style.setProperty('overflow', 'hidden')
+    };
+  }, []);
+
   return (
     <Wrapper>
       <PresentationExperience />
@@ -12,6 +21,11 @@ const Presentation = () => {
       <Section>2</Section>
       <Section>3</Section>
       <Section>4</Section>
+      <Section>5</Section>
+      <Section>6</Section>
+      <Section>7</Section>
+      <Section>8</Section>
+      <Section>9</Section>
     </Wrapper>
   );
 };

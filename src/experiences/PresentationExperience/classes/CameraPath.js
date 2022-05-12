@@ -6,12 +6,18 @@ export default class CameraPath {
     this.experience = new Experience();
     this.sizes = this.experience.sizes;
     this.scene = this.experience.scene;
+    this.resources = this.experience.resources;
 
     // Setup
     this.setCurve();
     this.setGeometry();
     this.setMaterial();
     this.setCameraPath();
+  }
+
+  setModel() {
+    console.log(this.resource);
+    this.cameraPath = this.resource.scene.children[0];
   }
 
   setCurve() {
@@ -30,7 +36,7 @@ export default class CameraPath {
   }
 
   setGeometry() {
-    this.geometry = new THREE.TubeBufferGeometry(this.curve, 100, 0.1, 5, false);
+    this.geometry = new THREE.TubeBufferGeometry(this.curve, 200, 0.05, 10, false);
   }
 
   setMaterial() {
