@@ -21,4 +21,5 @@ export const Title = styled.div`
   text-align: center;
   font-size: 4rem;
   font-weight: 700;
+  color: #888;
 `;

@@ -5,18 +5,52 @@ export default class Scroll extends EventEmitter {
     super();
 
     // Setup
+    this.scrolling = false;
     this.scrollY = 0;
+    this.scrollDirection = 0;
+    this.currentProgress = 0;
+    this.targetProgress = 0;
+    this.touchStartValue = 0;
 
-    window.addEventListener('scroll', this.scrollHandler);
+    window.addEventListener('wheel', this.scrollHandler);
+
+    window.addEventListener('touchstart', this.touchStart);
+    window.addEventListener('touchmove', this.scrollHandler);
   }
 
-  scrollHandler = () => {
-    this.scrollY = window.scrollY;
+  touchStart = (event) => {
+    this.touchStartValue = event.touches[0].pageY;
+  };
+
+  scrollHandler = (event) => {
+    window.scrollTo(0, this.scrollY);
+
+    if (this.scrolling) {
+      return;
+    }
+
+    this.scrolling = true;
+    
+    if(event.type === 'touchmove') {
+      this.scrollDirection = this.touchStartValue - event.touches[0].pageY;
+    } else {
+      this.scrollDirection = event.deltaY;
+    }
+
+    if (this.scrollDirection > 0 && this.targetProgress < 1) {
+      this.targetProgress += 0.1;
+    } else if (this.scrollDirection < 0 && this.targetProgress > 0) {
+      this.targetProgress -= 0.1;
+    }
+    this.targetProgress = Number(this.targetProgress.toFixed(1));
 
     this.trigger('scroll');
   }
 
   destroy() {
-    window.removeEventListener('scoll', this.scrollHandler);
+    window.removeEventListener('wheel', this.scrollHandler);
+    
+    window.removeEventListener('touchstart', this.scrollHandler);
+    window.removeEventListener('touchmove', this.scrollHandler);
   }
 }

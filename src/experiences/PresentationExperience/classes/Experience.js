@@ -66,11 +66,12 @@ export default class Experience {
 
   scrollEvent() {
     // this.scrollCamera.update();
-    this.camera.update();
+    // this.camera.update();
   }
 
   update() {
     this.world.update();
+    this.camera.update();
     this.renderer.update();
   }
 

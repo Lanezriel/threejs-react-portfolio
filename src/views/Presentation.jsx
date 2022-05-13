@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import PresentationExperience from "../experiences/PresentationExperience/PresnetationExperience";
+import PresentationExperience from "../experiences/PresentationExperience/PresentationExperience";
 import { Section, Title, Wrapper } from "./Presentation.styled";
 
 const Presentation = () => {
@@ -17,7 +17,7 @@ const Presentation = () => {
     <Wrapper>
       <PresentationExperience />
       <Section>
-        <Title>Presentation (to be created)</Title>
+        <Title>Presentation (in creation process)</Title>
       </Section>
       <Section>1</Section>
       <Section>2</Section>

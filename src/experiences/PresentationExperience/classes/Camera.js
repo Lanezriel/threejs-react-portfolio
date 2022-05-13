@@ -28,11 +28,30 @@ export default class Camera {
   }
 
   update() {
-    const progress = this.scroll.scrollY / (document.body.scrollHeight - this.sizes.height);
+    if (
+      (this.scroll.scrollDirection > 0 && this.scroll.currentProgress >= this.scroll.targetProgress)
+      || (this.scroll.scrollDirection < 0 && this.scroll.currentProgress <= this.scroll.targetProgress)
+    ) {
+      this.scroll.scrolling = false;
+    } else {
+      if (this.scroll.scrollDirection > 0) {
+        this.scroll.currentProgress += 0.001;
+      } else if (this.scroll.scrollDirection < 0) {
+        this.scroll.currentProgress -= 0.001;
+      }
+      this.scroll.currentProgress = Number(this.scroll.currentProgress.toFixed(3));
 
-    this.instance.position.copy(this.cameraPath.geometry.parameters.path.getPointAt(progress));
-    if (progress <= 0.95) {
-      this.instance.lookAt(this.cameraPath.geometry.parameters.path.getPointAt(progress + 0.005));
+      this.scroll.scrollY = (document.body.scrollHeight - this.sizes.height) * this.scroll.currentProgress;
+      window.scrollTo(0, this.scroll.scrollY);
+
+      const progress = Number(
+        (this.scroll.scrollY / (document.body.scrollHeight - this.sizes.height)).toFixed(3)
+      );
+
+      this.instance.position.copy(this.cameraPath.geometry.parameters.path.getPointAt(progress));
+      if (progress <= 0.95) {
+        this.instance.lookAt(this.cameraPath.geometry.parameters.path.getPointAt(progress + 0.005));
+      }
     }
   }
 }
