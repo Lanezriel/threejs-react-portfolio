@@ -4,10 +4,12 @@ import { Section, Title, Wrapper } from "./Presentation.styled";
 
 const Presentation = () => {
   useEffect(() => {
-    document.body.style.setProperty('overflow', 'auto');
+    document.body.style.setProperty('overflow-y', 'auto');
+    document.documentElement.classList.add('hidden-scrollbar');
 
     return () => {
-      document.body.style.setProperty('overflow', 'hidden')
+      document.body.style.setProperty('overflow-y', 'hidden');
+      document.documentElement.classList.remove('hidden-scrollbar');
     };
   }, []);
 
@@ -30,6 +32,23 @@ const Presentation = () => {
       <Section>11</Section>
       <Section>12</Section>
       <Section>13</Section>
+      <Section>14</Section>
+      <Section>15</Section>
+      <Section>16</Section>
+      <Section>17</Section>
+      <Section>18</Section>
+      <Section>19</Section>
+      <Section>20</Section>
+      <Section>21</Section>
+      <Section>22</Section>
+      <Section>23</Section>
+      <Section>24</Section>
+      <Section>25</Section>
+      <Section>26</Section>
+      <Section>27</Section>
+      <Section>28</Section>
+      <Section>29</Section>
+      <Section>30</Section>
     </Wrapper>
   );
 };

@@ -15,11 +15,6 @@ export default class CameraPath {
     this.setCameraPath();
   }
 
-  setModel() {
-    console.log(this.resource);
-    this.cameraPath = this.resource.scene.children[0];
-  }
-
   setCurve() {
     this.curve = new THREE.CatmullRomCurve3([
       new THREE.Vector3(-3, 1, 4),
@@ -40,7 +35,7 @@ export default class CameraPath {
   }
 
   setGeometry() {
-    this.geometry = new THREE.TubeBufferGeometry(this.curve, 200, 0.05, 10, false);
+    this.geometry = new THREE.TubeBufferGeometry(this.curve, 200, 0, 1, false);
   }
 
   setMaterial() {
