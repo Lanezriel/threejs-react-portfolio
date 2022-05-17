@@ -5,11 +5,22 @@ export default class Floor {
   constructor() {
     this.experience = new Experience();
     this.scene = this.experience.scene;
+    this.resources = this.experience.resources;
 
     // Setup
-    this.setGeometry();
-    this.setMaterial();
-    this.setMesh();
+    this.resource = this.resources.items.floorModel;
+    
+    this.setModel();
+
+    // this.setGeometry();
+    // this.setMaterial();
+    // this.setMesh();
+  }
+
+  setModel() {
+    this.model = this.resource.scene;
+    this.model.scale.set(0.1, 0.1, 0.1);
+    this.scene.add(this.model);
   }
 
   setGeometry() {

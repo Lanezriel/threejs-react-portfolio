@@ -14,13 +14,18 @@ const Canvas = styled.canvas`
 const PresentationExperience = () => {
   const canvasRef = useRef();
   const experience = useRef();
+  const firstAlreadyDone = useRef(false);
 
   useEffect(() => {
     experience.current = new Experience(canvasRef.current);
 
     return () => {
-      experience.current.destroy();
-      experience.current = null;
+      if (firstAlreadyDone.current) {
+        experience.current.destroy();
+        experience.current = null;
+      } else {
+        firstAlreadyDone.current = true;
+      }
     };
   }, []);
 
