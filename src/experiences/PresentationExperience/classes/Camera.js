@@ -51,11 +51,7 @@ export default class Camera {
       this.scroll.scrollY = (document.body.scrollHeight - this.sizes.height) * this.scroll.currentProgress;
       window.scrollTo(0, this.scroll.scrollY);
 
-      const progress = Math.min(
-        Math.max(
-          (this.scroll.scrollY / (document.body.scrollHeight - this.sizes.height)), 0),
-          1
-        );
+      const progress = Math.min(Math.max(this.scroll.currentProgress, 0), 1);
 
       this.instance.position.copy(this.cameraPath.geometry.parameters.path.getPointAt(progress));
       if (progress <= 0.95) {
