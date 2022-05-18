@@ -9,6 +9,7 @@ export default class Scroll extends EventEmitter {
     this.scrollY = 0;
     this.scrollDirection = 0;
     this.currentProgress = 0;
+    this.previousTargetProgress = 0;
     this.targetProgress = 0;
     this.touchStartValue = 0;
 
