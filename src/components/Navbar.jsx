@@ -31,7 +31,7 @@ const Wrapper = styled.div`
   animation-delay: 2s;
 
   ${respondTo.sm`
-    top: 1rem;
+    top: 3rem;
     transform: unset;
   `}
 `;
@@ -42,7 +42,7 @@ const StyledLink = styled(NavLink)`
   gap: 0.5rem;
   width: fit-content;
   color: white;
-  padding: 0.25rem 1rem;
+  padding: 0.5rem 1rem;
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: 700;
@@ -50,8 +50,15 @@ const StyledLink = styled(NavLink)`
   // Translate to left - icon size - gap size - padding size
   transform: translateX(calc(-100% + 2rem + 0.5rem + 1rem));
 
+  ${respondTo.sm`
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    transform: translateX(calc(-100% + 1.5rem + 0.5rem + 0.5rem));
+  `}
+
   & .icon {
     width: 2rem;
+    height: 2rem;
 
     & .fill {
       fill: white;
@@ -62,6 +69,11 @@ const StyledLink = styled(NavLink)`
       stroke: white;
       transition: stroke 300ms 200ms ease-in-out;
     }
+
+    ${respondTo.sm`
+      width: 1.5rem;
+      height: 1.5rem;
+    `}
   }
 
   &:hover {

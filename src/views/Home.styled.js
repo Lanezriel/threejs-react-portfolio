@@ -29,7 +29,7 @@ export const Title = styled.div`
   animation: ${blurryAppear} 2s ease-in-out forwards;
 
   ${respondTo.sm`
-    font-size: 2.5rem;
+    font-size: 2rem;
   `}
 `;
 
@@ -40,4 +40,8 @@ export const Subtitle = styled.div`
   filter: blur(2rem);
   animation: ${blurryAppear} 1s ease-in-out forwards;
   animation-delay: 1.5s;
+
+  ${respondTo.sm`
+    font-size: 0.8rem;
+  `}
 `;

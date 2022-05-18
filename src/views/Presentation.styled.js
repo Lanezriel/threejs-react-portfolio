@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { respondTo } from '../utils/respondTo';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -22,4 +23,8 @@ export const Title = styled.div`
   font-size: 4rem;
   font-weight: 700;
   color: #888;
+
+  ${respondTo.sm`
+    font-size: 2rem;
+  `}
 `;
