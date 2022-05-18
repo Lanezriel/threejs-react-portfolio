@@ -8,6 +8,7 @@ export default class CursorLight {
   constructor() {
     this.experience = new Experience();
     this.sizes = this.experience.sizes;
+    this.time = this.experience.time;
     this.cursor = this.experience.cursor;
     this.scene = this.experience.scene;
     this.debug = this.experience.debug;
@@ -63,6 +64,14 @@ export default class CursorLight {
   }
 
   update() {
+    if (this.time.elapsed < 5000) {
+      const t = ((this.time.elapsed * 0.001) - 3) * 0.5
+      const scale = THREE.MathUtils.lerp(0, 0.75, t);
+      this.plane.scale.set(scale, scale, scale);
+
+      const intensity = THREE.MathUtils.lerp(0, 3, t);
+      this.light.intensity = intensity;
+    }
     this.plane.position.copy(this.cursor.position);
   }
 }
