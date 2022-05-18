@@ -40,7 +40,7 @@ export default class Camera {
       const acceleration = Math.sin(3 * normalize(
         this.scroll.currentProgress, this.scroll.previousTargetProgress, this.scroll.targetProgress
       ));
-      const speed = 0.001 * Math.max(Math.min(acceleration, 0.8), 0.25);
+      const speed = 0.001 * Math.max(Math.min(acceleration * 1.5, 0.8), 0.25);
 
       if (this.scroll.scrollDirection > 0) {
         this.scroll.currentProgress += speed;
