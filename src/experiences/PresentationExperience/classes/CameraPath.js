@@ -18,7 +18,7 @@ export default class CameraPath {
   setCurve() {
     this.curve = new THREE.CatmullRomCurve3([
       new THREE.Vector3(-3, 1, 4),
-      new THREE.Vector3(-2.5, 0.1, 3),
+      new THREE.Vector3(-2.5, 0.2, 3),
       new THREE.Vector3(0, 0.25, 3.5),
       new THREE.Vector3(1, 0.1, 3),
       new THREE.Vector3(2.5, 0.25, 3),

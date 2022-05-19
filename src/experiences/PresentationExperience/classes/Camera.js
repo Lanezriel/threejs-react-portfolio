@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { Vector3 } from "three";
 
 import Experience from "./Experience";
 
@@ -8,12 +9,20 @@ export default class Camera {
   constructor() {
     this.experience = new Experience();
     this.sizes = this.experience.sizes;
+    this.time = this.experience.time;
     this.scroll = this.experience.scroll;
     this.scene = this.experience.scene;
     this.canvas = this.experience.canvas;
     this.cameraPath = this.experience.cameraPath;
 
+    // Setup
+    this.rotationMatrix = new THREE.Matrix4();
+    this.targetQuaternion = new THREE.Quaternion();
+    this.rotationSpeed = 0.001;
+    this.target = this.cameraPath.geometry.parameters.path.getPointAt(0.005);
+
     this.setInstance();
+    this.setTransitions();
   }
 
   setInstance() {
@@ -22,6 +31,17 @@ export default class Camera {
     this.instance.position.copy(this.cameraPath.geometry.parameters.path.getPointAt(0));
     this.instance.lookAt(this.cameraPath.geometry.parameters.path.getPointAt(0.01));
     this.scene.add(this.instance);
+  }
+
+  setTransitions() {
+    this.transitions = [
+      {
+        start: 0.09,
+        end: 0.12,
+        target: new Vector3(0.15, 0.4, 3.3),
+        speed: 0.0015,
+      },
+    ];
   }
 
   resize() {
@@ -54,9 +74,29 @@ export default class Camera {
       const progress = Math.min(Math.max(this.scroll.currentProgress, 0), 1);
 
       this.instance.position.copy(this.cameraPath.geometry.parameters.path.getPointAt(progress));
-      if (progress <= 0.95) {
-        this.instance.lookAt(this.cameraPath.geometry.parameters.path.getPointAt(progress + 0.005));
+
+      const currentTransition = this.transitions.find(
+        (t) => t.start <= this.scroll.currentProgress && t.end >= this.scroll.currentProgress
+      );
+      
+      if (currentTransition !== undefined) {
+        this.target = currentTransition.target;
+        this.rotationSpeed = currentTransition.speed;
       }
+      if (progress <= 0.95 && currentTransition === undefined) {
+        // this.instance.lookAt(this.cameraPath.geometry.parameters.path.getPointAt(progress + 0.005));
+        this.target = this.cameraPath.geometry.parameters.path.getPointAt(progress + 0.005);
+        this.rotationSpeed = 0.001;
+      }
+
+      // Recalculate as the camera changed position
+      this.rotationMatrix.lookAt(this.instance.position, this.target, this.instance.up);
+      this.targetQuaternion.setFromRotationMatrix(this.rotationMatrix);
+    }
+
+    if (!this.instance.quaternion.equals(this.targetQuaternion)) {
+      const step = this.rotationSpeed * this.time.delta;
+      this.instance.quaternion.rotateTowards(this.targetQuaternion, step);
     }
   }
 }
