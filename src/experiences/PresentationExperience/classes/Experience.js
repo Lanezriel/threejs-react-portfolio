@@ -33,11 +33,11 @@ export default class Experience {
     // Setup
     this.debug = new Debug();
     this.sizes = new Sizes();
-    this.scroll = new Scroll();
     this.time = new Time();
     this.scene = new THREE.Scene();
     this.resources = new Resources(sources);
     this.cameraPath = new CameraPath();
+    this.scroll = new Scroll();
     // this.scrollCamera = new ScrollCamera();
     this.camera = new Camera();
     this.renderer = new Renderer();

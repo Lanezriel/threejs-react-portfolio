@@ -36,9 +36,9 @@ export default class Camera {
   setTransitions() {
     this.transitions = [
       {
-        start: 0.09,
-        end: 0.12,
-        target: new Vector3(0.15, 0.4, 3.3),
+        start: 0.04,
+        end: 0.075,
+        target: new Vector3(-3.3, 0.2, 3.7),
         speed: 0.0015,
       },
     ];
@@ -86,7 +86,7 @@ export default class Camera {
       if (progress <= 0.95 && currentTransition === undefined) {
         // this.instance.lookAt(this.cameraPath.geometry.parameters.path.getPointAt(progress + 0.005));
         this.target = this.cameraPath.geometry.parameters.path.getPointAt(progress + 0.005);
-        this.rotationSpeed = 0.001;
+        this.rotationSpeed = 0.002;
       }
 
       // Recalculate as the camera changed position
@@ -94,7 +94,10 @@ export default class Camera {
       this.targetQuaternion.setFromRotationMatrix(this.rotationMatrix);
     }
 
-    if (!this.instance.quaternion.equals(this.targetQuaternion)) {
+    if (
+      !this.instance.quaternion.equals(this.targetQuaternion)
+      && this.scroll.currentProgress <= 0.95
+    ) {
       const step = this.rotationSpeed * this.time.delta;
       this.instance.quaternion.rotateTowards(this.targetQuaternion, step);
     }

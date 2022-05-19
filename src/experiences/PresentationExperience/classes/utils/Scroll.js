@@ -1,8 +1,12 @@
+import Experience from "../Experience";
 import EventEmitter from "./EventEmitter";
 
 export default class Scroll extends EventEmitter {
   constructor() {
     super();
+
+    this.experience = new Experience();
+    this.cameraPath = this.experience.cameraPath;
 
     // Setup
     this.scrolling = false;
@@ -10,7 +14,8 @@ export default class Scroll extends EventEmitter {
     this.scrollDirection = 0;
     this.currentProgress = 0;
     this.previousTargetProgress = 0;
-    this.targetProgress = 0;
+    this.targetProgress = this.cameraPath.pointsOfInterest[0];
+    this.pointsOfInterestIndex = 0;
     this.touchStartValue = 0;
 
     window.addEventListener('wheel', this.scrollHandler);
@@ -38,12 +43,18 @@ export default class Scroll extends EventEmitter {
       this.scrollDirection = event.deltaY;
     }
 
-    if (this.scrollDirection > 0 && this.targetProgress < 1) {
-      this.targetProgress += 0.1;
-    } else if (this.scrollDirection < 0 && this.targetProgress > 0) {
-      this.targetProgress -= 0.1;
+    if (
+      this.scrollDirection > 0
+      && this.pointsOfInterestIndex < this.cameraPath.pointsOfInterest.length
+    ) {
+      this.pointsOfInterestIndex += 1;
+    } else if (
+      this.scrollDirection < 0
+      && this.pointsOfInterestIndex > 0
+    ) {
+      this.pointsOfInterestIndex -= 1;
     }
-    this.targetProgress = Number(this.targetProgress.toFixed(1));
+    this.targetProgress = this.cameraPath.pointsOfInterest[this.pointsOfInterestIndex];
 
     this.trigger('scroll');
   }
