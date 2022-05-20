@@ -13,6 +13,7 @@ import Renderer from "./Renderer";
 import sources from "./sources";
 import World from "./world/World";
 import Scroll from "./utils/Scroll";
+// import TestCamera from "./TestCamera";
 
 let instance = null;
 
@@ -39,6 +40,7 @@ export default class Experience {
     this.cameraPath = new CameraPath();
     this.scroll = new Scroll();
     // this.scrollCamera = new ScrollCamera();
+    // this.camera = new TestCamera();
     this.camera = new Camera();
     this.renderer = new Renderer();
     this.world = new World();

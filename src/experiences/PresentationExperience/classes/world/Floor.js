@@ -19,6 +19,12 @@ export default class Floor {
 
   setModel() {
     this.model = this.resource.scene;
+    this.model.traverse((child) => {
+      if (child.isMesh) {
+        child.receiveShadow = true;
+        child.castShadow = true;
+      }
+    });
     this.model.scale.set(0.1, 0.1, 0.1);
     this.scene.add(this.model);
   }
@@ -28,7 +34,7 @@ export default class Floor {
   }
 
   setMaterial() {
-    this.material = new THREE.MeshBasicMaterial();
+    this.material = new THREE.MeshStandardMaterial();
   }
 
   setMesh() {

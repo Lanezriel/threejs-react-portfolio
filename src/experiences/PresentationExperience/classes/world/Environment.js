@@ -13,18 +13,21 @@ export default class Environment {
       this.debugFolder = this.debug.ui.addFolder('environment');
     }
 
-    this.setSunLight()
-    this.setEnvironmentMap()
+    this.setSunLight();
+    this.setEnvironmentMap();
   }
 
   setSunLight() {
-    this.sunLight = new THREE.DirectionalLight('#ffffff', 1.5);
+    this.sunLight = new THREE.DirectionalLight('#ffffff', 1);
     this.sunLight.castShadow = true;
-    this.sunLight.shadow.camera.far = 15;
+    this.sunLight.shadow.camera.far = 25;
+    this.sunLight.shadow.camera.scale.set(2.25, 1, 1);
     this.sunLight.shadow.mapSize.set(1024, 1024);
     this.sunLight.shadow.normalBias = 0.05;
-    this.sunLight.position.set(-1.75, 2.5, 2.5);
+    this.sunLight.position.set(-5, 2.5, 10);
     this.scene.add(this.sunLight);
+
+    // this.scene.add(new THREE.CameraHelper(this.sunLight.shadow.camera));
 
     // Debug
     if (this.debug.active) {
@@ -60,7 +63,7 @@ export default class Environment {
 
   setEnvironmentMap() {
     this.environmentMap = {};
-    this.environmentMap.intensity = 0.4;
+    this.environmentMap.intensity = 0.2;
     this.environmentMap.texture = this.resources.items.environmentMapTexture;
     this.environmentMap.texture.encoding = THREE.sRGBEncoding;
 

@@ -16,7 +16,7 @@ export default class Cubes {
   }
 
   setMaterial() {
-    this.material = new THREE.MeshBasicMaterial({ color: 0xaaaaaa });
+    this.material = new THREE.MeshStandardMaterial({ color: 0xaaaaaa });
   }
 
   setMesh() {

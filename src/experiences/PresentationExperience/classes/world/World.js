@@ -15,10 +15,6 @@ export default class World {
       this.floor = new Floor();
       this.environment = new Environment();
     });
-
-    // // Setup
-    // this.floor = new Floor();
-    // this.cubes = new Cubes();
   }
 
   update() {
