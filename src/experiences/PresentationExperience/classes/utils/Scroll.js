@@ -45,7 +45,7 @@ export default class Scroll extends EventEmitter {
 
     if (
       this.scrollDirection > 0
-      && this.pointsOfInterestIndex < this.cameraPath.pointsOfInterest.length
+      && this.pointsOfInterestIndex < this.cameraPath.pointsOfInterest.length - 1
     ) {
       this.pointsOfInterestIndex += 1;
     } else if (
