@@ -13,17 +13,36 @@ export default class Environment {
       this.debugFolder = this.debug.ui.addFolder('environment');
     }
 
+    this.setAmbientLight();
     this.setSunLight();
     this.setEnvironmentMap();
   }
 
+  setAmbientLight() {
+    this.ambientLight = new THREE.AmbientLight('#ffffff', 0.1);
+    this.scene.add(this.ambientLight);
+
+    // Debug
+    if (this.debug.active) {
+      this.debugFolder
+        .add(this.ambientLight, 'intensity')
+        .name('ambientLightIntensity')
+        .min(0)
+        .max(10)
+        .step(0.001);
+      
+      this.debugFolder
+        .addColor(this.ambientLight, 'color');
+    }
+  }
+
   setSunLight() {
-    this.sunLight = new THREE.DirectionalLight('#ffffff', 1);
-    this.sunLight.castShadow = true;
-    this.sunLight.shadow.camera.far = 25;
-    this.sunLight.shadow.camera.scale.set(2.25, 1, 1);
-    this.sunLight.shadow.mapSize.set(1024, 1024);
-    this.sunLight.shadow.normalBias = 0.05;
+    this.sunLight = new THREE.DirectionalLight('#ffffff', 0.1);
+    // this.sunLight.castShadow = true;
+    // this.sunLight.shadow.camera.far = 25;
+    // this.sunLight.shadow.camera.scale.set(2.25, 1, 1);
+    // this.sunLight.shadow.mapSize.set(1024, 1024);
+    // this.sunLight.shadow.normalBias = 0.05;
     this.sunLight.position.set(-5, 2.5, 10);
     this.scene.add(this.sunLight);
 
@@ -68,7 +87,8 @@ export default class Environment {
     this.environmentMap.texture.encoding = THREE.sRGBEncoding;
 
     this.scene.environment = this.environmentMap.texture;
-    this.scene.background = new THREE.Color(0x004080);
+    this.scene.background = this.environmentMap.texture;
+    // this.scene.background = new THREE.Color(0x004080);
 
     this.environmentMap.updateMaterials = () => {
       this.scene.traverse((child) => {

@@ -133,6 +133,7 @@ export default class EventEmitter
             {
                 if(this.callbacks[ namespace ] instanceof Object && this.callbacks[ namespace ][ name.value ] instanceof Array)
                 {
+                    // eslint-disable-next-line
                     this.callbacks[ namespace ][ name.value ].forEach(function(callback)
                     {
                         result = callback.apply(this, args)

@@ -1,5 +1,4 @@
 import * as THREE from "three";
-import { Vector3 } from "three";
 
 import Experience from "./Experience";
 
@@ -38,8 +37,9 @@ export default class Camera {
       {
         start: 0.02,
         end: 0.09,
-        target: new Vector3(-3.3, 0.2, 3.7),
+        target: new THREE.Vector3(-3.3, 0.2, 3.7),
         speed: 0.001,
+        lightName: 'belgiumLight',
       },
     ];
   }
@@ -86,7 +86,7 @@ export default class Camera {
       if (progress <= 0.95 && currentTransition === undefined) {
         // this.instance.lookAt(this.cameraPath.geometry.parameters.path.getPointAt(progress + 0.005));
         this.target = this.cameraPath.geometry.parameters.path.getPointAt(progress + 0.005);
-        this.rotationSpeed = 0.001;
+        this.rotationSpeed = 0.002;
       }
 
       // Recalculate as the camera changed position
