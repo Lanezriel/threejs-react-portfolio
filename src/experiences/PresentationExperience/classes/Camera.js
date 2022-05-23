@@ -36,10 +36,10 @@ export default class Camera {
   setTransitions() {
     this.transitions = [
       {
-        start: 0.04,
-        end: 0.075,
+        start: 0.02,
+        end: 0.09,
         target: new Vector3(-3.3, 0.2, 3.7),
-        speed: 0.0015,
+        speed: 0.001,
       },
     ];
   }
@@ -60,7 +60,7 @@ export default class Camera {
       const acceleration = Math.sin(3 * normalize(
         this.scroll.currentProgress, this.scroll.previousTargetProgress, this.scroll.targetProgress
       ));
-      const speed = 0.001 * Math.max(Math.min(acceleration * 1.5, 0.8), 0.25);
+      const speed = 0.0005 * Math.max(Math.min(acceleration * 1.5, 0.75), 0.25);
 
       if (this.scroll.scrollDirection > 0) {
         this.scroll.currentProgress += speed;
@@ -86,7 +86,7 @@ export default class Camera {
       if (progress <= 0.95 && currentTransition === undefined) {
         // this.instance.lookAt(this.cameraPath.geometry.parameters.path.getPointAt(progress + 0.005));
         this.target = this.cameraPath.geometry.parameters.path.getPointAt(progress + 0.005);
-        this.rotationSpeed = 0.002;
+        this.rotationSpeed = 0.001;
       }
 
       // Recalculate as the camera changed position
