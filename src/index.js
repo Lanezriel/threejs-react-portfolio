@@ -10,11 +10,13 @@ import Presentation from './views/Presentation';
 import Experience from './views/Experience';
 import Achievements from './views/Achievements';
 import Contact from './views/Contact';
+import LanguageButton from './components/LanguageButton';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+      <LanguageButton/>
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />

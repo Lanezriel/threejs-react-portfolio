@@ -1,8 +1,12 @@
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+
 import PresentationExperience from "../experiences/PresentationExperience/PresentationExperience";
 import { Section, Title, Wrapper } from "./Presentation.styled";
 
 const Presentation = () => {
+  const { t } = useTranslation();
+
   useEffect(() => {
     document.body.style.setProperty('overflow-y', 'auto');
     document.documentElement.classList.add('hidden-scrollbar');
@@ -17,7 +21,7 @@ const Presentation = () => {
     <Wrapper>
       <PresentationExperience />
       <Section>
-        <Title>Presentation (in creation process)</Title>
+        <Title>{t('common.presentation')} ({t('common.inCreationProcess')})</Title>
       </Section>
       <Section>1</Section>
       <Section>2</Section>

@@ -35,7 +35,7 @@ export const Title = styled.div`
 
 export const Subtitle = styled.div`
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.5rem;
   opacity: 0;
   filter: blur(2rem);
   animation: ${blurryAppear} 1s ease-in-out forwards;

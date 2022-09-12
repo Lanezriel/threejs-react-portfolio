@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
+import { useTranslation } from "react-i18next";
 
 import { ReactComponent as HomeIcon } from "../assets/icons/homeIcon.svg";
 import { ReactComponent as PresentationIcon } from "../assets/icons/presentationIcon.svg";
@@ -114,26 +115,38 @@ const StyledLink = styled(NavLink)`
 `;
 
 const Navbar = () => {
+  const { t } = useTranslation();
+
   return (
     <Wrapper>
       <StyledLink to="/">
-        <div className="text">Home</div>
+        <div className="text">
+          {t('common.home')}
+        </div>
         <HomeIcon className="icon"/>
       </StyledLink>
       <StyledLink to="/presentation">
-        <div className="text">Presentation</div>
+        <div className="text">
+          {t('common.presentation')}
+        </div>
         <PresentationIcon className="icon"/>
       </StyledLink>
       <StyledLink to="/experience">
-        <div className="text">Experience</div>
+        <div className="text">
+          {t('common.experience')}
+        </div>
         <ExperienceIcon className="icon"/>
       </StyledLink>
       <StyledLink to="/achievements">
-        <div className="text">Achievements</div>
+        <div className="text">
+          {t('common.achievements')}
+        </div>
         <AchievementIcon className="icon"/>
       </StyledLink>
       <StyledLink to="/contact">
-        <div className="text">Contact</div>
+        <div className="text">
+          {t('common.contact')}
+        </div>
         <ContactIcon className="icon"/>
       </StyledLink>
     </Wrapper>
