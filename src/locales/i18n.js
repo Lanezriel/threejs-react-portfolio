@@ -12,6 +12,7 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'en',
+    supportedLngs: ['en', 'fr', 'jp'],
     resources: {
       en: {
         translation: ENGLISH,

@@ -4,6 +4,8 @@ import i18n from 'i18next';
 import { useTranslation } from 'react-i18next';
 import { CircleFlag } from 'react-circle-flags';
 
+import { respondTo } from '../utils/respondTo';
+
 const Dropdown = styled.div`
   display: flex;
   flex-direction: column;
@@ -29,12 +31,15 @@ const Wrapper = styled.div`
   right: 5rem;
   z-index: 10;
   padding: 0.5rem 0.75rem;
-  background: rgba(0, 0, 0, 0.5);
   border-radius: 0 0 10px 10px;
 
   &:hover ${Dropdown} {
     visibility: visible;
   }
+
+  ${respondTo.sm`
+    right: 1rem;
+  `}
 `;
 
 const StyledButton = styled.button`
@@ -54,11 +59,17 @@ const StyledButton = styled.button`
   &:hover {
     background: rgba(0, 0, 0, 0.5);
   }
+
+  ${respondTo.sm`
+    font-size: 1rem;
+  `}
 `;
 
 const LanguageButton = () => {
   const { t } = useTranslation();
   const [language, setLanguage] = useState(i18n.language);
+
+  const flagSize = window.innerWidth < 768 ? '25': '35';
 
   const onLanguageChange = (evt) => {
     evt.preventDefault();
@@ -68,19 +79,19 @@ const LanguageButton = () => {
 
   return (
     <Wrapper>
-      <CircleFlag countryCode={language === 'en' ? 'gb' : language} height="35"/>
+      <CircleFlag countryCode={language === 'en' ? 'gb' : language} height={flagSize}/>
       <Dropdown>
         <StyledButton value="en" onClick={onLanguageChange}>
           {t('common.english')}
-          <CircleFlag countryCode="gb" height="35" />
+          <CircleFlag countryCode="gb" height={flagSize} />
         </StyledButton>
         <StyledButton value="fr" onClick={onLanguageChange}>
           {t('common.french')}
-          <CircleFlag countryCode="fr" height="35" />
+          <CircleFlag countryCode="fr" height={flagSize} />
         </StyledButton>
         <StyledButton value="jp" onClick={onLanguageChange}>
           {t('common.japanese')}
-          <CircleFlag countryCode="jp" height="35" />
+          <CircleFlag countryCode="jp" height={flagSize} />
         </StyledButton>
       </Dropdown>
     </Wrapper>
