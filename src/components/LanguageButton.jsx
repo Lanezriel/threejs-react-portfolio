@@ -71,25 +71,24 @@ const LanguageButton = () => {
 
   const flagSize = window.innerWidth < 768 ? '25': '35';
 
-  const onLanguageChange = (evt) => {
-    evt.preventDefault();
-    setLanguage(evt.target.value);
-    i18n.changeLanguage(evt.target.value);
+  const onLanguageChange = (value) => {
+    setLanguage(value);
+    i18n.changeLanguage(value);
   };
 
   return (
     <Wrapper>
       <CircleFlag countryCode={language === 'en' ? 'gb' : language} height={flagSize}/>
       <Dropdown>
-        <StyledButton value="en" onClick={onLanguageChange}>
+        <StyledButton onClick={() => onLanguageChange('en')}>
           {t('common.english')}
           <CircleFlag countryCode="gb" height={flagSize} />
         </StyledButton>
-        <StyledButton value="fr" onClick={onLanguageChange}>
+        <StyledButton onClick={() => onLanguageChange('fr')}>
           {t('common.french')}
           <CircleFlag countryCode="fr" height={flagSize} />
         </StyledButton>
-        <StyledButton value="jp" onClick={onLanguageChange}>
+        <StyledButton onClick={() => onLanguageChange('jp')}>
           {t('common.japanese')}
           <CircleFlag countryCode="jp" height={flagSize} />
         </StyledButton>
