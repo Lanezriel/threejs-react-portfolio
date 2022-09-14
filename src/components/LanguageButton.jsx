@@ -26,7 +26,7 @@ const Dropdown = styled.div`
 `;
 
 const Wrapper = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 5rem;
   z-index: 10;

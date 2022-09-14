@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
   background: radial-gradient(circle, rgba(16,0,33,1) 0%, rgba(0,0,0,1) 100%);
 `;
 
-export const Title = styled.div`
+export const Title = styled.h1`
   text-align: center;
   font-size: 4rem;
   font-weight: 700;
@@ -33,7 +33,7 @@ export const Title = styled.div`
   `}
 `;
 
-export const Subtitle = styled.div`
+export const Subtitle = styled.h2`
   text-align: center;
   font-size: 1.5rem;
   opacity: 0;
