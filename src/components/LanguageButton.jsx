@@ -81,15 +81,15 @@ const LanguageButton = () => {
       <CircleFlag countryCode={language === 'en' ? 'gb' : language} height={flagSize}/>
       <Dropdown>
         <StyledButton onClick={() => onLanguageChange('en')}>
-          {t('common.english')}
+          English
           <CircleFlag countryCode="gb" height={flagSize} />
         </StyledButton>
         <StyledButton onClick={() => onLanguageChange('fr')}>
-          {t('common.french')}
+          Français
           <CircleFlag countryCode="fr" height={flagSize} />
         </StyledButton>
         <StyledButton onClick={() => onLanguageChange('jp')}>
-          {t('common.japanese')}
+          日本語
           <CircleFlag countryCode="jp" height={flagSize} />
         </StyledButton>
       </Dropdown>
