@@ -15,8 +15,6 @@ export const Dropdown = styled.div`
   transition: transform 500ms ease-in-out,
               opacity 500ms ease-in-out,
               filter 500ms ease-in-out;
-  /* visibility: hidden; */
-  /* background: rgba(32, 32, 32, 0.75); */
   border-radius: 15px;
   backdrop-filter: blur(10px);
   box-shadow: inset 0 2px 1px rgba(255, 255, 255, 0.4),
@@ -48,10 +46,7 @@ export const Wrapper = styled.div`
   z-index: 10;
   padding: 0.5rem 0.75rem;
   border-radius: 0 0 10px 10px;
-
-  &:hover ${Dropdown} {
-    /* visibility: visible; */
-  }
+  cursor: pointer;
 
   ${respondTo.sm`
     right: 1rem;
