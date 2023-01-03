@@ -24,31 +24,31 @@ const Navbar = () => {
         <BurgerMenu/>
       </Toggler>
       <Menu className={menuVisible && 'visible'}>
-        <StyledLink to="/">
+        <StyledLink to="/" onClick={() => setMenuVisible(false)}>
           <HomeIcon className="icon"/>
           <div className="text">
             {t('common.home')}
           </div>
         </StyledLink>
-        <StyledLink to="/presentation">
+        <StyledLink to="/presentation" onClick={() => setMenuVisible(false)}>
           <PresentationIcon className="icon"/>
           <div className="text">
             {t('common.presentation')}
           </div>
         </StyledLink>
-        <StyledLink to="/experience">
+        <StyledLink to="/experience" onClick={() => setMenuVisible(false)}>
           <ExperienceIcon className="icon"/>
           <div className="text">
             {t('common.experience')}
           </div>
         </StyledLink>
-        <StyledLink to="/achievements">
+        <StyledLink to="/achievements" onClick={() => setMenuVisible(false)}>
           <AchievementIcon className="icon"/>
           <div className="text">
             {t('common.achievements')}
           </div>
         </StyledLink>
-        <StyledLink to="/contact">
+        <StyledLink to="/contact" onClick={() => setMenuVisible(false)}>
           <ContactIcon className="icon"/>
           <div className="text">
             {t('common.contact')}

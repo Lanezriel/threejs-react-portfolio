@@ -12,6 +12,7 @@ const LanguageButton = () => {
 
   const onLanguageChange = (value) => {
     setLanguage(value);
+    setDropdownVisible(false);
     i18n.changeLanguage(value);
   };
 
