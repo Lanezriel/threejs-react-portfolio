@@ -26,7 +26,7 @@ export default class Time extends EventEmitter {
 
     // Why does deviding by 60 doesn't seem to help me locking the framerate to maximum 60 ?
     // But gives about 24 instead
-    if (this.deltaRender >= 1000 / 80) {
+    if (this.deltaRender >= 1000 / 70) {
       this.deltaRender = 0;
       this.trigger('tick');
     }
