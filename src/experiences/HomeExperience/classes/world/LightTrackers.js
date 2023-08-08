@@ -8,6 +8,7 @@ export default class LightTrackers {
     this.sizes = this.experience.sizes;
     this.cursor = this.experience.cursor;
     this.scene = this.experience.scene;
+    this.time = this.experience.time;
 
     this.numTrackers = 25;
     this.instances = [];
@@ -82,7 +83,7 @@ export default class LightTrackers {
         vLimit,
       } = this.instances[i];
 
-      this.tempVector.copy(this.cursor.position).sub(position).normalize().multiplyScalar(attraction);
+      this.tempVector.copy(this.cursor.position).sub(position).normalize().multiplyScalar(attraction * (this.time.delta / 20));
       velocity.add(this.tempVector).clampScalar(-vLimit, vLimit);
       position.add(velocity);
 
