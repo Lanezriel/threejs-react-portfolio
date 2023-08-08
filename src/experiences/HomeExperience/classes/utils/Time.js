@@ -22,7 +22,10 @@ export default class Time extends EventEmitter {
     this.current = currentTime;
     this.elapsed = this.current - this.start;
 
-    this.trigger('tick');
+    // Why does it have to be devided by 100 and not 60 to obtain 60 FPS ???!!!
+    if (this.delta >= 1000/100) {
+      this.trigger('tick');
+    }
 
     window.requestAnimationFrame(() => {
       this.tick();

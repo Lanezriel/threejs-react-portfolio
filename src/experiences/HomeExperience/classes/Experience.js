@@ -56,9 +56,11 @@ export default class Experience {
   }
 
   update() {
+    if (this.debug.active) this.debug.stats.begin()
     this.camera.update();
     this.world.update();
     this.renderer.update();
+    if (this.debug.active) this.debug.stats.end()
   }
 
   destroy() {
