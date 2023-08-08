@@ -26,6 +26,7 @@ export default class Time extends EventEmitter {
 
     // Why does it have to be devided by 100 and not 60 to obtain 60 FPS ???!!!
     if (this.deltaRender >= 10) {
+      this.deltaRender = 0;
       this.trigger('tick');
     }
 
